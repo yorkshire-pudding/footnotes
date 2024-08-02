@@ -60,8 +60,10 @@ function _footnotes_settings($form, &$form_state, $filter, $format) {
 /**
  * The bulk of filtering work is done here.
  */
-function _footnotes_filter($text = '', $filter, $format) {
-
+function _footnotes_filter($text, $filter, $format) {
+  if (is_null($text)) {
+    $text = '';
+  }
   // Supporting both [fn] and <fn> now.
   // Thanks to fletchgqc http://drupal.org/node/268026.
   // Convert all square brackets to angle brackets. This way all further code
